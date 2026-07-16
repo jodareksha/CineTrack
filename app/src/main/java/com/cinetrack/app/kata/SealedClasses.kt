@@ -9,7 +9,7 @@ sealed interface Result<out T> {
 object ResultKata {
 
     fun <T> describe(result: Result<T>): String {
-     return when (result) {
+        return when (result) {
             is Result.Loading -> "Loading..."
             is Result.Success -> "Data: ${result.data}"
             is Result.Error -> "Error: ${result.message}"

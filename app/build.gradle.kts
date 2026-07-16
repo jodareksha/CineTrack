@@ -3,6 +3,8 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt.android)
 }
 
 // Baca TMDB_API_KEY dari local.properties (jangan pernah commit API key ke git)
@@ -31,7 +33,6 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-
         }
     }
 
@@ -52,8 +53,12 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.material)
+
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.moshi)

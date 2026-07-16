@@ -9,14 +9,14 @@ data class MoviePoster(
 object ScopeFunctionKata {
 
     fun buildFavoritePoster(title: String, posterUrlValue: String): MoviePoster {
-         return MoviePoster(title).apply {
-             posterUrl = posterUrlValue
-             isFavorite = true
+        return MoviePoster(title).apply {
+            posterUrl = posterUrlValue
+            isFavorite = true
         }
     }
 
     fun resolvePosterUrlOrDefault(posterUrl: String?): String {
-       return  posterUrl?.let { it.uppercase()} ?: "no_image.png"
+        return  posterUrl?.let { it.uppercase()} ?: "no_image.png"
     }
 
     fun logAndReturn(poster: MoviePoster, logs: MutableList<String>): MoviePoster {

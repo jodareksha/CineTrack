@@ -1,9 +1,12 @@
 package com.cinetrack.app
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
 /**
- * Phase 0: masih kosong. Di Phase 1, ini akan jadi @HiltAndroidApp
- * saat kita migrasi ke Hilt untuk dependency injection.
+ * @HiltAndroidApp memicu Hilt untuk generate dependency graph (component) di level
+ * Application. Ini WAJIB ada di Application class, ini "pintu masuk" DI graph
+ * yang dipakai semua @AndroidEntryPoint (Activity) dan @HiltViewModel di app ini.
  */
+@HiltAndroidApp
 class CineTrackApp : Application()
