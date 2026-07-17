@@ -56,7 +56,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.material)
-
+    implementation(libs.androidx.recyclerview)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 

@@ -1,10 +1,13 @@
 package com.cinetrack.app
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.cinetrack.app.presentation.search.SearchActivity
 import com.cinetrack.app.presentation.trending.TrendingUiState
 import com.cinetrack.app.presentation.trending.TrendingViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +25,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val tvResult = findViewById<TextView>(R.id.tvResult)
-
+        findViewById<Button>(R.id.btnOpenSearch).setOnClickListener {
+            startActivity(Intent(this, SearchActivity::class.java))
+        }
         lifecycleScope.launch {
             viewModel.uiState.collectLatest { state ->
                 when (state) {

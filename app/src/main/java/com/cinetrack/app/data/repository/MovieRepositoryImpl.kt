@@ -22,6 +22,7 @@ class MovieRepositoryImpl @Inject constructor(
 //                response.results.toDomainList()
 //            }
 //    }
-/*cara singkat panggil api*/
+/*cara singkat panggil api idiomatik single A-B*/
     override suspend fun getTrendingMovies(): Result<List<Movie>> = safeApiCall { api.getTrendingMovies() }.map { it.results.toDomainList() }
+    override suspend fun searchMovies(query: String): Result<List<Movie>> = safeApiCall { api.searchMovies(query) }.map { it.results.toDomainList() }
 }

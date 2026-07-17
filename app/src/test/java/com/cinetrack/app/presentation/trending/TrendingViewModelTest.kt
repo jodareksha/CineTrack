@@ -2,7 +2,7 @@ package com.cinetrack.app.presentation.trending
 
 import com.cinetrack.app.core.Result
 import com.cinetrack.app.domain.model.Movie
-import com.cinetrack.app.domain.repository.MovieRepository
+import com.cinetrack.app.testutil.FakeMovieRepository
 import com.cinetrack.app.testutil.MainDispatcherRule
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
@@ -10,16 +10,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 
-/**
- * Fake, bukan mock. FakeMovieRepository ini implementasi ASLI dari interface
- * MovieRepository (bukan lewat library mocking seperti MockK), cuma isinya
- * dikendalikan penuh oleh test (mau sukses atau gagal, kamu yang tentukan).
- * Ini pola yang lebih disarankan untuk interface sederhana seperti ini — kita
- * akan bahas kapan pakai fake vs mock lebih dalam di Phase 3.
- */
-class FakeMovieRepository(private val result: Result<List<Movie>>) : MovieRepository {
-    override suspend fun getTrendingMovies(): Result<List<Movie>> = result
-}
+
 
 class TrendingViewModelTest {
 

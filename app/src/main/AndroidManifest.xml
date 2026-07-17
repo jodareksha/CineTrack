@@ -8,7 +8,9 @@
         android:allowBackup="true"
         android:label="CineTrack"
         android:theme="@style/Theme.CineTrack">
-
+        <activity
+            android:name=".presentation.search.SearchActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

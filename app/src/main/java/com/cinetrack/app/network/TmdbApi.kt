@@ -11,5 +11,10 @@ interface TmdbApi {
     suspend fun getTrendingMovies(
         @Query("language") language: String = "en-US"
     ): TrendingResponseDto
+    @GET("search/movie")
+    suspend fun searchMovies(
+        @Query("query") query: String,
+        @Query("language") language: String = "en-US"
+    ): TrendingResponseDto
 }
 

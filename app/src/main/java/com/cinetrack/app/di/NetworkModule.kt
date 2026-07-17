@@ -17,20 +17,7 @@ import javax.inject.Singleton
 
 private const val BASE_URL = "https://api.themoviedb.org/3/"
 
-/**
- * Ini pengganti object NetworkModule manual dari Phase 0. Bandingkan dengan versi lama
- * kamu (sudah dihapus) — perhatikan APA yang sebenarnya digantikan oleh Hilt:
- *
- * - Dulu: `object NetworkModule { val tmdbApi by lazy { ... } }` — kamu yang atur
- *   urutan pembuatan (moshi -> okhttp -> retrofit -> api) secara manual.
- * - Sekarang: tiap @Provides function cuma butuh declare APA yang dia butuhkan sebagai
- *   parameter (misal provideRetrofit butuh OkHttpClient dan Moshi), dan Hilt yang
- *   otomatis urutkan pemanggilannya berdasarkan dependency graph. @Singleton memastikan
- *   cuma dibuat SEKALI selama app hidup, sama seperti `by lazy` dulu.
- *
- * @InstallIn(SingletonComponent::class) artinya semua yang di-provide di sini hidup
- * selama Application hidup (bukan cuma selama 1 Activity).
- */
+
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
