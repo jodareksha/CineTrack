@@ -2,9 +2,9 @@ package com.cinetrack.app.data.mapper
 
 import com.cinetrack.app.domain.model.Movie
 import com.cinetrack.app.domain.model.MovieDetail
-import com.cinetrack.app.kata.takeUpTo
-import com.cinetrack.app.kata.toRatingLabel
-import com.cinetrack.app.kata.toReleaseYear
+import com.cinetrack.app.core.takeUpTo
+import com.cinetrack.app.core.toRatingLabel
+import com.cinetrack.app.core.toReleaseYear
 import com.cinetrack.app.network.dto.CreditsDto
 import com.cinetrack.app.network.dto.MovieDetailDto
 import com.cinetrack.app.network.dto.MovieDto

@@ -69,6 +69,8 @@ dependencies {
 //  Modular implementasion core/
     implementation(project(":core:model"))
     implementation(project(":core:network"))
+    implementation(project(":core:common"))
+    implementation(project(":core:domain"))
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

@@ -17,3 +17,5 @@ rootProject.name = "CineTrack"
 include(":app")
 include(":core:model")
 include("core:network")
+include(":core:common")
+include(":core:domain")
