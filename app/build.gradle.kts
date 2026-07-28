@@ -71,6 +71,7 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:common"))
     implementation(project(":core:domain"))
+    implementation(project(":core:data"))
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

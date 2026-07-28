@@ -23,19 +23,7 @@ fun MovieDto.toDomain(): Movie {
 }
 
 fun List<MovieDto>.toDomainList(): List<Movie> = map { it.toDomain() }
-/**
- * TODO (fitur detail): Gabungkan MovieDetailDto + CreditsDto jadi 1 MovieDetail.
- *
- * Mapping tiap field:
- * - id, title, overview -> ambil langsung dari `detail`
- * - posterUrl -> POSTER_BASE_URL + detail.posterPath (null-safe)
- * - ratingLabel -> detail.voteAverage.toRatingLabel()
- * - releaseYear -> (detail.releaseDate ?: "").toReleaseYear()
- * - runtimeLabel -> detail.runtime itu Int? (menit). Format "142 min" kalau ada,
- *   "Unknown" kalau null (pakai ?.let + elvis)
- * - genres -> detail.genres.map { it.name }
- * - castNames -> credits.cast.map { it.name }, batasi 5 pakai .takeUpTo(5)
- */
+
 fun toMovieDetailDomain(detail: MovieDetailDto, credits: CreditsDto): MovieDetail {
     return MovieDetail(
         id = detail.id,
