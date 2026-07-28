@@ -21,9 +21,6 @@ class SearchViewModel @Inject constructor(
     private val repository: MovieRepository
 ) : ViewModel() {
 
-    // _query menampung apa yang user ketik, di-update tiap kali karakter berubah.
-    // Ini SUMBER dari seluruh chain Flow di bawah — mirip _uiState di TrendingViewModel,
-    // tapi bedanya di sini yang kita simpan adalah INPUT user, bukan hasil akhir.
     private val _query = MutableStateFlow("")
 
     fun onQueryChanged(newQuery: String) {

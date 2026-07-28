@@ -14,7 +14,7 @@ import com.cinetrack.app.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-
+import com.cinetrack.app.presentation.detail.DetailActivity
 @AndroidEntryPoint
 class SearchActivity : AppCompatActivity() {
 
@@ -29,8 +29,9 @@ class SearchActivity : AppCompatActivity() {
         val rvSearchResults = findViewById<RecyclerView>(R.id.rvSearchResults)
 
         val adapter = MovieAdapter(onMovieClick = { movie ->
-            val movieId = intent.getIntExtra("EXTRA_MOVIE_ID",movie.id)
-//            val intent = Intent(this,Detai)
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("movieId", movie.id)
+            startActivity(intent)
         })
         rvSearchResults.layoutManager = LinearLayoutManager(this)
         rvSearchResults.adapter = adapter
