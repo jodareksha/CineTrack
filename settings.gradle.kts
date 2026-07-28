@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "CineTrack"
 include(":app")
-include(":model")
+include(":core:model")
+include("core:network")

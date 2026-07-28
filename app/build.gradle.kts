@@ -50,7 +50,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":model"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -66,6 +65,10 @@ dependencies {
     implementation(libs.okhttp.logging)
     implementation(libs.moshi.kotlin)
     implementation(libs.kotlinx.coroutines.android)
+
+//  Modular implementasion core/
+    implementation(project(":core:model"))
+    implementation(project(":core:network"))
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
