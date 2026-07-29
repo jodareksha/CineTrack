@@ -10,7 +10,6 @@ import com.cinetrack.app.domain.model.Movie
 import com.cinetrack.app.domain.model.MovieDetail
 import com.cinetrack.app.domain.repository.MovieRepository
 import com.cinetrack.app.network.TmdbApi
-import com.cinetrack.app.network.dto.TrendingResponseDto
 import javax.inject.Inject
 
 

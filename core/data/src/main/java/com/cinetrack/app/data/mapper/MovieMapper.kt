@@ -9,7 +9,7 @@ import com.cinetrack.app.network.dto.CreditsDto
 import com.cinetrack.app.network.dto.MovieDetailDto
 import com.cinetrack.app.network.dto.MovieDto
 
-private const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342"
+private const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w185"
 
 fun MovieDto.toDomain(): Movie {
     return Movie(

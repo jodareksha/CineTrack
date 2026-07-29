@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 // Baca TMDB_API_KEY dari local.properties (jangan pernah commit API key ke git)
@@ -38,6 +39,7 @@ android {
 
     buildFeatures {
         buildConfig = true
+        compose = true
     }
 
     compileOptions {
@@ -72,6 +74,18 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
+
+//    compose library
+    implementation(platform(libs.androidx.compose.bom))
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.activity:activity-compose:1.9.2")
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation(libs.coil.compose)
+    implementation("androidx.compose.material:material-icons-extended:1.7.3")
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
