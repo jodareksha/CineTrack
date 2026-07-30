@@ -25,7 +25,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.cinetrack.app.presentation.detail.DetailActivity
 import com.cinetrack.app.presentation.search.SearchActivity
 import com.cinetrack.app.presentation.trending.TrendingScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -89,8 +89,15 @@ private fun MainScreenScaffold(
 
 @Composable
 private fun MainScreen() {
+    val context = LocalContext.current
     MainScreenScaffold {
-        TrendingScreen()
+        TrendingScreen(
+            onMovieClick = { movie ->
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("movieId", movie.id)
+                context.startActivity(intent)
+            }
+        )
     }
 }
 

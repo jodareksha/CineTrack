@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.compose.compiler)
+    id("jacoco")
 }
 
 // Baca TMDB_API_KEY dari local.properties (jangan pernah commit API key ke git)
@@ -53,8 +54,47 @@ android {
     }
 }
 
+jacoco {
+    toolVersion = "0.8.12"
+}
+
+tasks.register<JacocoReport>("jacocoTestReport") {
+    dependsOn("testDebugUnitTest")
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+
+    /**
+     * Kenapa perlu exclude ini semua: kode yang di-GENERATE otomatis (Hilt,
+     * R.java, BuildConfig, Compose compiler internals) itu bukan kode yang
+     * KAMU tulis — memasukkannya ke perhitungan coverage cuma bikin angka
+     * menyesatkan (baik terlalu tinggi kalau kebetulan "tersentuh", atau
+     * terlalu rendah kalau tidak — dua-duanya tidak mencerminkan kualitas
+     * kode kamu yang sebenarnya).
+     */
+    val fileFilter = listOf(
+        "**/R.class", "**/R\$*.class", "**/BuildConfig.*", "**/Manifest*.*",
+        "**/*Test*.*", "android/**/*.*",
+        "**/*_Hilt*.*", "**/Hilt_*.*", "**/*_Factory.*", "**/*_MembersInjector.*",
+        "**/Dagger*Component*.*", "**/*Module_*Factory.*",
+        "**/ComposableSingletons\$*.*", "**/*\$Companion.*"
+    )
+
+    val debugTree = fileTree("${layout.buildDirectory.get()}/tmp/kotlin-classes/debug") {
+        exclude(fileFilter)
+    }
+    val mainSrc = "${projectDir}/src/main/java"
+
+    sourceDirectories.setFrom(files(mainSrc))
+    classDirectories.setFrom(files(debugTree))
+    executionData.setFrom(fileTree(layout.buildDirectory.get()) {
+        include("**/*.exec", "**/*.ec")
+    })
+}
+
 dependencies {
-    implementation(libs.androidx.compose.ui.test.junit4)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -94,6 +134,7 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    debugImplementation(libs.leakcanary.android)
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

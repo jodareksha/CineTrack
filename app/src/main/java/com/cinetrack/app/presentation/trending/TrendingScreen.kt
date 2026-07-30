@@ -24,15 +24,19 @@ import androidx.compose.ui.semantics.semantics
 
 @Composable
 fun TrendingScreen(
-    viewModel: TrendingViewModel = hiltViewModel()
+    viewModel: TrendingViewModel = hiltViewModel(),
+    onMovieClick: (Movie) -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    TrendingContent(uiState = uiState)
+    TrendingContent(
+        uiState = uiState,
+        onMovieClick = onMovieClick
+    )
 }
 
 
 @Composable
-internal fun TrendingContent(uiState: TrendingUiState) {
+internal fun TrendingContent(uiState: TrendingUiState, onMovieClick: (Movie) -> Unit = {}) {
     when (uiState) {
         is TrendingUiState.Loading -> {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -50,7 +54,7 @@ internal fun TrendingContent(uiState: TrendingUiState) {
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(uiState.movies, key = { it.id }) { movie ->
-                    MoviePosterCard(movie)
+                    MoviePosterCard(movie, onClick = onMovieClick)
                 }
             }
         }

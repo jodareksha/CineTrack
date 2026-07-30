@@ -1,6 +1,8 @@
 plugins {
     id("java-library")
     alias(libs.plugins.jetbrains.kotlin.jvm)
+    id("jacoco")
+
 }
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -19,4 +21,16 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(libs.kotlinx.coroutines.android)
     implementation("javax.inject:javax.inject:1")
+}
+
+jacoco {
+    toolVersion = "0.8.12"
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
 }
