@@ -37,7 +37,7 @@ import com.cinetrack.app.domain.model.Movie
 import com.cinetrack.app.presentation.common.MoviePosterCard
 
 @Composable
-private fun SearchContent(
+internal fun SearchContent(
     query: String,
     onQueryChange: (String) -> Unit,
     uiState: SearchUiState,
