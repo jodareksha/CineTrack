@@ -15,7 +15,11 @@ Architecture** — powered by [The Movie Database (TMDB)](https://www.themoviedb
 
 | Trending                         | Search                              | Detail      |
 |----------------------------------|-------------------------------------|-------------|
-| ![Trending](![img.png](img.png)) | ![Search](![img_1.png](img_1.png),![img_2.png](img_2.png)) | ![Detail](![img_3.png](img_3.png)) |
+| ![Trending](<img width="714" height="1524" alt="image" src="https://github.com/user-attachments/assets/e6e6d904-c1be-4a3d-b688-de1e4781f68f" />
+) | ![Search](<img width="718" height="1504" alt="image" src="https://github.com/user-attachments/assets/109e22b9-5ad6-400d-8ad9-3ad5c298d1a7" />,<img width="726" height="1518" alt="image" src="https://github.com/user-attachments/assets/99a0938d-cb01-413f-849c-1f199a7b6f44" />
+
+) | ![Detail](<img width="714" height="1508" alt="image" src="https://github.com/user-attachments/assets/9e419dd7-1fd9-4feb-ae5a-2d7f757cc689" />
+) |
 
 
 
