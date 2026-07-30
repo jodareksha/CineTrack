@@ -8,15 +8,13 @@ Architecture** — powered by [The Movie Database (TMDB)](https://www.themoviedb
 ![Compose](https://img.shields.io/badge/Jetpack%20Compose-1.11-4285F4?logo=jetpackcompose&logoColor=white)
 ![Min SDK](https://img.shields.io/badge/minSdk-24-brightgreen)
 
-
 ---
 
 ## 📱 Screenshots
 
-| Trending                         | Search                              | Detail      |
-|----------------------------------|-------------------------------------|-------------|
-|<img width="714" height="1524" alt="image" src="https://github.com/user-attachments/assets/e6e6d904-c1be-4a3d-b688-de1e4781f68f" />|<img width="726" height="1518" alt="image" src="https://github.com/user-attachments/assets/99a0938d-cb01-413f-849c-1f199a7b6f44" />|<img width="714" height="1508" alt="image" src="https://github.com/user-attachments/assets/9e419dd7-1fd9-4feb-ae5a-2d7f757cc689" />|
-
+| Trending | Search | Detail |
+|---|---|---|
+| ![Trending](screenshots/trending.png) | ![Search](screenshots/search.png) | ![Detail](screenshots/detail.png) |
 
 
 ## ✨ Features
@@ -32,8 +30,7 @@ Clean Architecture across **6 Gradle modules**, with a strict one-directional de
 
 ```mermaid
 graph TD
-    app --> feature_trending[":app (presentation)"]
-    app --> core_data[":core:data"]
+    app[":app"] --> core_data[":core:data"]
     core_data --> core_network[":core:network"]
     core_data --> core_domain[":core:domain"]
     core_data --> core_common[":core:common"]
