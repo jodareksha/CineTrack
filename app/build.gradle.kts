@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.compose.compiler)
     id("jacoco")
+    alias(libs.plugins.baselineprofile)
 }
 
 // Baca TMDB_API_KEY dari local.properties (jangan pernah commit API key ke git)
@@ -100,9 +101,11 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.profileinstaller)
     implementation(libs.material)
     implementation(libs.androidx.recyclerview)
     implementation(libs.hilt.android)
+    "baselineProfile"(project(":baselineprofile"))
     ksp(libs.hilt.compiler)
 
     implementation(libs.retrofit.core)
