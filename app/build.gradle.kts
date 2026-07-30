@@ -29,6 +29,8 @@ android {
         versionName = "0.1.0-phase0"
 
         buildConfigField("String", "TMDB_API_KEY", "\"$tmdbApiKey\"")
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -52,6 +54,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.compose.ui.test.junit4)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -75,7 +78,7 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
 
-//    compose library
+//  Compose library
     implementation(platform(libs.androidx.compose.bom))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
@@ -86,6 +89,11 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     implementation(libs.coil.compose)
     implementation("androidx.compose.material:material-icons-extended:1.7.3")
+
+//  Compose Testing Library
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

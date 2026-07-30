@@ -21,7 +21,7 @@ Dipilih secara spesifik karena satu domain (film/TV) ini natural memerlukan **se
 
 Ini juga project yang **rekruter langsung paham** saat lihat portofolio kamu — bukan to-do list app generik.
 
-## Referensi GitHub sejenis (boleh dibuka kalau stuck, TAPI coba sendiri dulu)
+## Referensi GitHub sejenis 
 
 Jangan copy-paste — ini untuk dibaca **setelah** kamu mencoba sendiri, untuk membandingkan pendekatan:
 
@@ -43,10 +43,3 @@ Jangan copy-paste — ini untuk dibaca **setelah** kamu mencoba sendiri, untuk m
 
 ---
 
-## 📍 PHASE 0 (Week 1) — Kotlin Idiom Audit + Environment Proven End-to-End
-
-Lihat `PHASE_0_GUIDE.md` untuk instruksi detail, exercise, dan checklist minggu ini.
-
-Struktur project saat ini **sengaja single-module dan pakai XML** (bukan Compose dulu) — supaya kamu leverage skill Android XML yang sudah kamu punya sambil fokus ke Kotlin idiom & coroutines. Modularisasi dan migrasi ke Compose baru terjadi di Phase 1 & 2.
-
-Setelah Phase 0 selesai (semua kata test hijau + app menampilkan data TMDB di layar), chat lagi ke saya dengan progress kamu dan kita lanjut **Phase 1: MVVM + Clean Architecture + Modularization**.

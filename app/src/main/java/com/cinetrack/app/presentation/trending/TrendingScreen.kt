@@ -19,6 +19,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cinetrack.app.domain.model.Movie
 import com.cinetrack.app.presentation.common.MoviePosterCard
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 
 @Composable
 fun TrendingScreen(
@@ -30,11 +32,13 @@ fun TrendingScreen(
 
 
 @Composable
-private fun TrendingContent(uiState: TrendingUiState) {
+internal fun TrendingContent(uiState: TrendingUiState) {
     when (uiState) {
         is TrendingUiState.Loading -> {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
+                CircularProgressIndicator(
+                    modifier = Modifier.semantics { contentDescription = "Loading" }
+                )
             }
         }
         is TrendingUiState.Success -> {
